@@ -1,17 +1,20 @@
 import React from 'react';
-import Nav from './Navigation/Navigation';
 import { StyleSheet, View } from 'react-native';
 
+import Navigation from '../Navigation/Navigation';
+
+
+
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Nav/>
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            <Navigation />
+         </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+    container: {
+        flex: 1,
+    },
 });
