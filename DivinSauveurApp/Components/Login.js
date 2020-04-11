@@ -1,11 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, Button, TextInput } from 'react-native'
+import { StyleSheet, View, TextInput, Button } from 'react-native'
 
-class Inscription extends React.Component{
+
+class Login extends React.Component {
     render(){
         return(
             <View style={styles.main}>
-                <TextInput style={styles.pseudo} placeholder="Pseudo"/>
+                <TextInput style={styles.pseudo} placeholder="Totem"/>
                 <Button style={{ height:50 }} title="Inscription" onPress={() => {}}/>
             </View>
         )
@@ -28,4 +29,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Inscription
+export default Login
