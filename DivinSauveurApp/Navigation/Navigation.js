@@ -18,7 +18,8 @@ const DrawerNavigator = createDrawerNavigator({
         navigationOptions: {
             title: "Boutique"
         }
-    },
+    }
+
 },
 
     {
