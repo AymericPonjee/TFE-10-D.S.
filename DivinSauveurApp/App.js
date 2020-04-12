@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import Navigation from '../Navigation/Navigation';
+import Navigation from './Navigation/Navigation.js';
 
 
 

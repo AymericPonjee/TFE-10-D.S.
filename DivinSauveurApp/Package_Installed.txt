@@ -1,0 +1,10 @@
+npm install -g expo-cli
+npm install --save react-navigation
+npm install --save react-navigation-stack
+npm install --save react-navigation-drawer
+npm install --save react-native-reanimated X
+npm install --save react-native-gesture-handler
+npm install --save react-native-screens X
+
+yarn add react-native-safe-area-context
+yarn add @react-native-community/masked-view X
