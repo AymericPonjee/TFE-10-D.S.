@@ -1,4 +1,5 @@
 npm install -g expo-cli
+npm install -g react-native-cli
 npm install --save react-navigation
 npm install --save react-navigation-stack
 npm install --save react-navigation-drawer
@@ -8,4 +9,3 @@ npm install --save react-native-screens
 npm install --save react-native-safe-area-context
 npm install --save  @react-native-community/masked-view
 npm install --save react-native-vector-icons
-npm install --save react-native-screens
