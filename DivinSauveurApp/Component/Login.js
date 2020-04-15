@@ -1,16 +1,22 @@
 import React from 'react';
-import { StyleSheet, View, Input, Text, Button } from 'react-native';
+import { StyleSheet, View, Input, Text, Button, Image } from 'react-native';
 
 
 class Login extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Connexion</Text>
-                <Input  placeholder="Nom d'utilisateur" />
-                <Input  placeholder="Mot de passe" password />
-                <Button title="Se connecter"/>
-                <Text>Se créer un compte</Text>
+                <View style={styles.logo}>
+                    <Image source={require('../../IMG/Logo/DivinSauveur.png')}/>
+                </View>
+
+                <View style={styles.form}>
+                    <Text>Connexion</Text>
+                    <Input  placeholder="Nom d'utilisateur" />
+                    <Input  placeholder="Mot de passe" password />
+                    <Button title="Se connecter"/>
+                    <Text>Se créer un compte</Text>
+                </View>
             </View>
         )
     }
@@ -18,11 +24,10 @@ class Login extends React.Component {
 
 const styles = StyleSheet.create({
 
-    main_container: {
+    container: {
         flex: 1,
-        flexDirection: "column"
+        backgroundColor:'#6AD5FA'
     },
-    }
-);
+});
 
 export default Login

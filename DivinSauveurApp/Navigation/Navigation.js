@@ -4,6 +4,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer';
 
+import Login from '../Component/Login';
 import Calendrier from '../Component/Calendrier.js';
 import Boutique from '../Component/Boutique.js';
 
@@ -45,10 +46,9 @@ const StackNavigator = createStackNavigator({
         navigationOptions: ({ navigation }) => {
             const { } = navigation;
   
-  
             return {
                 header: ({ }) =>(
-                    <SafeAreaView style={styles.main_container}>
+                    <SafeAreaView style={styles.container}>
                         <View>
                             <Text>Divin Sauveur </Text>
                             <TouchableOpacity onPress={() => {navigation.dispatch(DrawerActions.toggleDrawer())}}></TouchableOpacity>
@@ -62,13 +62,11 @@ const StackNavigator = createStackNavigator({
 });
 
 const styles = StyleSheet.create({
-    main_container: {
-    
+    container: {
         flex: 1,
         flexDirection: "column"
     },
-    }
-);
+});
   
 
 export default createAppContainer(StackNavigator);
