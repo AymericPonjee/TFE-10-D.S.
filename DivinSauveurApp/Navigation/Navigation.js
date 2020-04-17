@@ -24,7 +24,6 @@ const DrawerNavigator = createDrawerNavigator({
             title: "Boutique"
         }
     }
-
 },
 
     {

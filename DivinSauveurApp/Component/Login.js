@@ -4,59 +4,59 @@ import { TextInput, StyleSheet, View, Text, Image, TouchableOpacity, KeyboardAvo
 
 class Login extends React.Component {
 
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
         
-    //     this.state = {
-
-    //     }
-    //   }
+        this.state = {
+            
+        }
+      }
 
     render() {
 
-    // const {navigate} = this.props.navigation;
-
+    const {navigate} = this.props.navigation;
 
         return (
 
             <View  style={styles.container}>
                 <StatusBar
-                    barStyle="light-content"
+                    barStyle="dark-content"
                 />
 
-                <KeyboardAvoidingView behavior="padding">
-                    <View style={styles.logoContainer}>
+                    <View style={styles.top}>
                         <Image 
                             style={styles.logo}
                             source={require('../IMG/Logo/DivinSauveur.png')}
                         />
+                        <Text style={styles.text}>
+                            Bienvenue sur l'application de la 10ième unité Divin Sauveur !
+                        </Text>
                     </View>
 
-                    <View style={styles.form}>
-                        
-                        <TextInput  
-                            placeholder="Nom d'utilisateur"
-                            placeholderTextColor="rgba(255,255,255,0.7)"
-                            onSubmitEditing={() => this.passwordInput.focus()}
-                            style={styles.input}
-                        />
+                    <View style={styles.mid}>
+                        <KeyboardAvoidingView> 
+                            <TextInput  
+                                placeholder="Nom d'utilisateur"
+                                placeholderTextColor="#26355C"
+                                onSubmitEditing={() => this.passwordInput.focus()}
+                                style={styles.input}
+                            />
 
-                        <TextInput  
-                            placeholder="Mot de passe"
-                            placeholderTextColor="rgba(255,255,255,0.7)"
-                            ref={(input) => this.passwordInput = input}
-                            secureTextEntry
-                            style={styles.input}
-                            // onPress={() => navigate('Main')}
-                        />
+                            <TextInput  
+                                placeholder="Mot de passe"
+                                placeholderTextColor="#26355C"
+                                ref={(input) => this.passwordInput = input}
+                                secureTextEntry
+                                style={styles.input}
+                            />
 
-                        <TouchableOpacity style={styles.buttonContainer}>
-                            <Text style={styles.buttonText}>Connexion</Text>
-                        </TouchableOpacity>
-                        
-                        <Text>Se créer un compte</Text>
+                            <TouchableOpacity style={styles.button} onPress={() => navigate('Main')}>
+                                <Text style={styles.buttonText}>Connexion</Text>
+                            </TouchableOpacity>
+                            
+                            <Text>Se créer un compte</Text>
+                        </KeyboardAvoidingView>
                     </View>
-                </KeyboardAvoidingView>
             </View>
         )
     }
@@ -66,28 +66,46 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor:'#6AD5FA'
+        backgroundColor:'lightgrey'
+    },
+    top: {
+        flex:0.8,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    mid: {
+        flex:1,
+        alignItems:'center'
     },
     logo: {
-        width:100,
-        height:100
+        width:250,
+        height:250,
     },
     input: {
         height:40,
-        backgroundColor:"rgba(255,255,255,0.2)",
-        marginBottom:10,
-        color:'white',
-        paddingHorizontal:10
+        backgroundColor:"#99B2D0",
+        marginBottom:20,
+        color:'#26355C',
+        paddingHorizontal:100,
+        borderRadius:10
     },
-    buttonContainer: {
-        backgroundColor:'black',
-        paddingVertical:15
+    button: {
+        backgroundColor:'#26355C',
+        marginBottom:20,
+        marginTop:20,
+        paddingVertical:15,
+        borderRadius:10
     },
     buttonText: {
         textAlign: 'center',
-        color:'white',
-        fontWeight: '700'
-    }
+        color:'#99B2D0',
+        fontWeight: '800'
+    },
+    text: {
+        textAlign: 'center',
+        color:'#26355C',
+        fontWeight: 'bold'
+    },
 })
 
 export default Login
