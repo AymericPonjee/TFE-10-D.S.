@@ -71,7 +71,7 @@ class Calendrier extends React.Component {
                     </View>
 
                     <View style={styles.bot}>
-
+                        
                     </View>
                 </View>
             );

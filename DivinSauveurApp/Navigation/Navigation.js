@@ -7,6 +7,7 @@ import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer'
 import Login from '../Component/Login'
 import Calendrier from '../Component/Calendrier.js'
 import Boutique from '../Component/Boutique.js'
+import Inscription from '../Component/Inscription.js'
 
 
 
@@ -39,31 +40,30 @@ const DrawerNavigator = createDrawerNavigator({
     }
 )
 
-const StackNavigator = createStackNavigator({
-    
-Login: { 
-    screen: Login,
-    navigationOptions: {
-      title: 'Login',
-      headerShown: false
-    }
-  },
-  Main: { 
-    screen: DrawerNavigator,
-    navigationOptions: {
-      title: 'Main',
-      headerShown: false
-    }
-  },
+const StackNavigator = createStackNavigator({ 
 
-
-})
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: "column"
+    Login: { 
+        screen: Login,
+        navigationOptions: {
+            title: 'Login',
+            headerShown: false
+        }
     },
+    Calendrier: { 
+        screen: DrawerNavigator,
+        navigationOptions: {
+            title: 'Calendrier',
+            headerShown: false
+        }
+    },
+    Inscription: { 
+        screen: Inscription,
+        navigationOptions: {
+            title: 'Inscription',
+            headerShown: false
+        }
+    },
+
 })
   
 

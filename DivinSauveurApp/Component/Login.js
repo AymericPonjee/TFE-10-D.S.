@@ -8,7 +8,7 @@ class Login extends React.Component {
         super(props);
         
         this.state = {
-            
+
         }
       }
 
@@ -50,11 +50,13 @@ class Login extends React.Component {
                                 style={styles.input}
                             />
 
-                            <TouchableOpacity style={styles.button} onPress={() => navigate('Main')}>
+                            <TouchableOpacity style={styles.button} onPress={() => navigate('Calendrier')}>
                                 <Text style={styles.buttonText}>Connexion</Text>
                             </TouchableOpacity>
                             
-                            <Text>Se créer un compte</Text>
+                            <Text onPress={() => navigate('Inscription')} style={styles.CCompte}>
+                                Se créer un compte
+                            </Text>
                         </KeyboardAvoidingView>
                     </View>
             </View>
@@ -98,7 +100,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         textAlign: 'center',
-        color:'#99B2D0',
+        color:'white',
         fontWeight: '800'
     },
     text: {
@@ -106,6 +108,9 @@ const styles = StyleSheet.create({
         color:'#26355C',
         fontWeight: 'bold'
     },
+    CCompte:{
+        textDecorationLine: 'underline'
+    }
 })
 
 export default Login
