@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View, StyleSheet, StatusBar, Image } from 'react-native';
+import React from 'react'
+import { Text, View, StyleSheet, StatusBar, Image, TouchableOpacity } from 'react-native'
 
 
 class Calendrier extends React.Component {
@@ -71,7 +71,7 @@ class Calendrier extends React.Component {
                     </View>
 
                     <View style={styles.bot}>
-                        
+
                     </View>
                 </View>
             );

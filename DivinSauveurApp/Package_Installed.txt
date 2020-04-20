@@ -13,4 +13,5 @@ npm install --save  @react-native-community/masked-view
 
 npm install --save react-native-vector-icons
 npm install galio-framework
-npm install react-native-simple-radio-button --save
+
+yarn add react-native-elements
