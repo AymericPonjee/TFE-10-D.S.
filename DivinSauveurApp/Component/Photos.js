@@ -1,8 +1,8 @@
-import React from 'react';
-import { Text, View, StyleSheet, StatusBar, Image } from 'react-native';
+import React from 'react'
+import { Text, View, StyleSheet, StatusBar, Image } from 'react-native'
 
 
-class Boutique extends React.Component {
+class Photos extends React.Component {
 
     constructor(props) {
         super(props);
@@ -14,6 +14,7 @@ class Boutique extends React.Component {
 
     render() {
         return (
+
             <View  style={styles.container}>
                 <StatusBar
                     barStyle="dark-content"
@@ -28,15 +29,17 @@ class Boutique extends React.Component {
 
                 <View style={styles.mid}>
                     <Text style={styles.titre}>
-                        Boutique
+                        Photos
                     </Text>
                 </View>
 
                 <View style={styles.bot}>
-
+                    <Text>
+                        À réfléchir...RGPD
+                    </Text>
                 </View>
             </View>
-         );
+        );
     }
 }
 
@@ -69,4 +72,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Boutique
+export default Photos

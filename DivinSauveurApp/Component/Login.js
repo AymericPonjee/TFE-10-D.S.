@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     },
     CCompte:{
         textDecorationLine: 'underline'
-    }
+    },
 })
 
 export default Login

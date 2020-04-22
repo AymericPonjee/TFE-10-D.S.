@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Image, View, TouchableOpacity, SafeAreaView, Platform } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer'
@@ -7,9 +7,15 @@ import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer'
 import Icon from 'react-native-vector-icons/Foundation'
 
 import Login from '../Component/Login'
+import Inscription from '../Component/Inscription.js'
 import Calendrier from '../Component/Calendrier.js'
 import Boutique from '../Component/Boutique.js'
-import Inscription from '../Component/Inscription.js'
+import Conversation from '../Component/Conversation.js'
+import Camp from '../Component/Camp.js'
+import Listing from '../Component/Listing.js'
+import Photos from '../Component/Photos.js'
+import Documents from '../Component/Documents.js'
+import Presentation from '../Component/Presentation.js'
 
 
 
@@ -17,7 +23,12 @@ const DrawerNavigator = createDrawerNavigator({
     Calendrier: {
         screen: Calendrier,
         navigationOptions: {
-            title: "Calendrier"
+            title: "Calendrier",
+            //     drawerIcon: () => { 
+            //     return <Image
+            //         source={require('../IMG/Icon/calendrier.png')}
+            //         style={styles.icon}/>
+            //   }
         }
     },
     Boutique: {
@@ -26,8 +37,44 @@ const DrawerNavigator = createDrawerNavigator({
             title: "Boutique"
         }
     },
-},
+    Conversation: {
+        screen: Conversation,
+        navigationOptions: {
+            title: "Conversation"
+        }
+    },
+    Camp: {
+        screen: Camp,
+        navigationOptions: {
+            title: "Camp"
+        }
+    },
+    Listing: {
+        screen: Listing,
+        navigationOptions: {
+            title: "Listing"
+        }
+    },
+    Photos: {
+        screen: Photos,
+        navigationOptions: {
+            title: "Photos"
+        }
+    },
+    Documents: {
+        screen: Documents,
+        navigationOptions: {
+            title: "Documents"
+        }
+    },
+    Presentation: {
+        screen: Presentation,
+        navigationOptions: {
+            title: "Présentation"
+        }
+    },
 
+},
 {
     drawerPosition: 'right',
     drawerType: 'slide',
@@ -35,7 +82,7 @@ const DrawerNavigator = createDrawerNavigator({
     drawerWidth: 150,
     style: {
       marginTop: 60,
-      alignItems:'center'
+      alignItems:'left',
     },
     contentOptions:{
         activeTintColor: '#99B2D0',
@@ -45,7 +92,14 @@ const DrawerNavigator = createDrawerNavigator({
 })
 
 const StackNavigator = createStackNavigator({ 
-    DrawerNavigator: {
+    Login: { 
+        screen: Login,
+        navigationOptions: {
+            title: 'Login',
+            headerShown: false
+        }
+    },
+    Calendrier: { 
         screen: DrawerNavigator,
         navigationOptions: ({ navigation }) => {
             const { state } = navigation;
@@ -58,21 +112,6 @@ const StackNavigator = createStackNavigator({
                         </View>
                 )
             }
-        }
-    },
-    
-    Login: { 
-        screen: Login,
-        navigationOptions: {
-            title: 'Login',
-            headerShown: false
-        }
-    },
-    Calendrier: { 
-        screen: DrawerNavigator,
-        navigationOptions: {
-            title: 'Calendrier',
-            headerShown: false
         }
     },
     Inscription: { 
@@ -96,6 +135,10 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 30
     },
+    icon: {
+        width: 30,
+        height: 30
+      }
   });
 
 export default createAppContainer(StackNavigator)
