@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     titre: {
         color:'#26355C',
         fontWeight: 'bold',
-        marginLeft:10,
+        marginLeft:25,
         fontSize: 30
     }
 });

@@ -14,4 +14,7 @@ npm install --save  @react-native-community/masked-view
 npm install --save react-native-vector-icons
 npm install galio-framework
 
+npm install --save express
+npm install --save mysql
+
 yarn add react-native-elements

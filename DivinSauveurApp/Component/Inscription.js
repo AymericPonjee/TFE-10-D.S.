@@ -62,7 +62,7 @@ class Inscription extends React.Component {
                         }
                     </View>
                 
-                    <Text style={styles.textForm1}>Veuillez introduire votre :</Text>
+                    <Text style={styles.Form}>Veuillez introduire votre :</Text>
                     <View style={styles.Form1}> 
                         <Text style={styles.textForm1}>Nom * : </Text>
                         <Input style={styles.input}
@@ -131,7 +131,8 @@ const styles = StyleSheet.create({
     },
     bot: {
         flex:1,
-        marginLeft:10
+        marginLeft:25,
+        marginRight:11
     },
     logo: {
         width:150,
@@ -140,17 +141,21 @@ const styles = StyleSheet.create({
     titre: {
         color:'#26355C',
         fontWeight: 'bold',
-        fontSize: 30
+        fontSize: 30,
+        marginLeft:25,
     },
     textForm:{
         color:'#26355C',
         fontWeight: '500',
-        fontSize: 15
+        fontSize: 15,
+        marginLeft:10,
     },
     Form:{
-        flexDirection: 'row',
-        paddingTop: 10,
-        paddingLeft: 15,
+        color:'#26355C',
+        fontWeight: '500',
+        fontSize: 15,
+        marginLeft:10,
+        paddingTop:20
     },
     check:{
         height:20,
@@ -159,7 +164,7 @@ const styles = StyleSheet.create({
     btn:{
         flexDirection: 'row',
         paddingTop: 10,
-        paddingLeft: 15
+        paddingLeft: 25
     },
     data:{
         color:'#26355C',
@@ -169,7 +174,7 @@ const styles = StyleSheet.create({
     Form1:{
         flexDirection: 'row',
         paddingTop: 10,
-        paddingLeft: 15,
+        paddingLeft: 25,
     },
     textForm1:{
         color:'#26355C',
@@ -188,7 +193,7 @@ const styles = StyleSheet.create({
     },
     Form2:{
         flexDirection: 'row',
-        paddingLeft: 15,
+        paddingLeft: 25,
     },
     textForm3:{
         color:'#26355C',
@@ -199,7 +204,7 @@ const styles = StyleSheet.create({
     },
     Form3:{
         flexDirection: 'row',
-        paddingLeft: 15,
+        paddingLeft: 25,
     },
     textForm4:{
         color:'#26355C',
@@ -210,7 +215,7 @@ const styles = StyleSheet.create({
     },
     Form4:{
         flexDirection: 'row',
-        paddingLeft: 15,
+        paddingLeft: 25,
     },
     textForm5:{
         color:'#26355C',
@@ -221,7 +226,7 @@ const styles = StyleSheet.create({
     },
     Form5:{
         flexDirection: 'row',
-        paddingLeft: 15,
+        paddingLeft: 25,
     },
     input: {
         height:40,
@@ -232,7 +237,7 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor:'#26355C',
-        margin:20,
+        margin:25,
         paddingVertical:15,
         borderRadius:10
     },
@@ -243,7 +248,7 @@ const styles = StyleSheet.create({
     },
     retour:{
         textDecorationLine: 'underline',
-        marginLeft:20,
+        marginLeft:25,
         fontSize: 15
     }
 });

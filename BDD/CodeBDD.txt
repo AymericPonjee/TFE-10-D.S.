@@ -2,6 +2,8 @@ Table User {
   IdUser integer PK
   NomUser varchar(25)
   PrenomUser varchar(25)
+  TotemUser varchar(25)
+  QualiUser varchar(25)
   MailUser varchar(50)
   PasswordUser varchar(30)
 }
@@ -54,7 +56,7 @@ Table Anime {
   AbsenceAnime int
   MaladieAnime varchar(255)
   CommentaireAnime varchar(225)
-  SexeAnime varchar(25)
+  SexeAnime boolean
 }
 
 Table UserAnime {
@@ -70,7 +72,7 @@ Table UserCommande {
 Table AnimeEvent {
   IdAnime integer PK
   IdEvent integer PK
-  AbsenceAnimeEvent bool
+  AbsenceAnimeEvent boolean
 }
 
 Ref: User.IdUser > Chef.IdUser

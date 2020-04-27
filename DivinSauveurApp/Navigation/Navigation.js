@@ -40,19 +40,19 @@ const DrawerNavigator = createDrawerNavigator({
     Conversation: {
         screen: Conversation,
         navigationOptions: {
-            title: "Conversation"
+            title: "Conversations"
         }
     },
     Camp: {
         screen: Camp,
         navigationOptions: {
-            title: "Camp"
+            title: "Camps"
         }
     },
     Listing: {
         screen: Listing,
         navigationOptions: {
-            title: "Listing"
+            title: "Listings"
         }
     },
     Photos: {
