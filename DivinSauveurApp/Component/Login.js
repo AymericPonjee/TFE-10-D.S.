@@ -1,6 +1,6 @@
 import React from 'react'
-import { TextInput, StyleSheet, View, Text, Image, TouchableOpacity, KeyboardAvoidingView, StatusBar } from 'react-native'
-
+import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, StatusBar } from 'react-native'
+import { Input } from 'galio-framework'
 
 
 class Login extends React.Component {
@@ -35,30 +35,37 @@ class Login extends React.Component {
                     </View>
 
                     <View style={styles.mid}>
-                        <KeyboardAvoidingView> 
-                            <TextInput  
-                                placeholder="Nom d'utilisateur"
-                                placeholderTextColor="#26355C"
-                                onSubmitEditing={() => this.passwordInput.focus()}
-                                style={styles.input}
-                            />
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="Introduisez votre adresse mail" 
+                            //placeholderTextColor = "#26355C"
+                            selectionColor = "#26355C"
+                            keyboardType = "email-address"
+                            onSubmitEditing={() => this.password.focus()}
+                        />
 
-                            <TextInput  
-                                placeholder="Mot de passe"
-                                placeholderTextColor="#26355C"
-                                ref={(input) => this.passwordInput = input}
-                                secureTextEntry
-                                style={styles.input}
-                            />
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="Introduisez votre adresse mot de passe" 
+                            secureTextEntry={true}
+                            //placeholderTextColor = "#26355C"
+                            selectionColor = "#26355C"
+                            ref={(input) => this.password = input}
+                        />
 
-                            <TouchableOpacity style={styles.button} onPress={() => navigate('Calendrier')}>
-                                <Text style={styles.buttonText}>Connexion</Text>
-                            </TouchableOpacity>
+                        <TouchableOpacity 
+                            style={styles.button} 
+                            onPress={() => navigate('Calendrier')}>
+                            <Text 
+                                style={styles.buttonText} 
+                                onPress={this.userRegister}>Connexion</Text>
+                        </TouchableOpacity>
                             
-                            <Text onPress={() => navigate('Inscription')} style={styles.CCompte}>
-                                Se créer un compte
-                            </Text>
-                        </KeyboardAvoidingView>
+                        <Text 
+                            onPress={() => navigate('Inscription')} 
+                            style={styles.CCompte}>
+                            Se créer un compte
+                        </Text>
                     </View>
             </View>
         )
@@ -85,22 +92,26 @@ const styles = StyleSheet.create({
         height:250,
     },
     input: {
-        height:40,
-        textAlign:'center',
+        borderRadius:17,
         backgroundColor:"#99B2D0",
-        marginBottom:20,
-        color:'#26355C',
-        paddingHorizontal:100,
-        borderRadius:10
+        height:50,
+        width:300,
+        marginVertical:10,
+        paddingHorizontal:10
     },
     button: {
         backgroundColor:'#26355C',
         marginBottom:20,
         marginTop:20,
         paddingVertical:15,
-        borderRadius:10
+        borderRadius:17,
+        height:50,
+        width:300,
     },
     buttonText: {
+        backgroundColor:'#26355C',
+        paddingVertical:2,
+        borderRadius:10,
         textAlign: 'center',
         color:'white',
         fontWeight: '800'
@@ -111,7 +122,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     CCompte:{
-        textDecorationLine: 'underline'
+        textDecorationLine: 'underline',
+        paddingRight:165
     },
 })
 

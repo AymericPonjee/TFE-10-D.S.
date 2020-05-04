@@ -10,9 +10,25 @@ class Inscription extends React.Component {
         super(props);
         
         this.state = {
-            data:[' Chef', ' Autres'],
-            checked:0
+            IsChef:[' Chef', ' Autres'],
+            checked:0,
+
+            NomUtilisateur:'',
+            PrenomUtilisateur:'',
+            TotemUtilisateur:'',
+            QualiUtilisateur:'',
+            MailUtilisateur:''
         }
+    }
+
+    userRegister = () => {
+        //alert("Votre demande d'accès à l'application a été envoyé ! Vous recevrez un mail avec votre mot de passe");
+
+        const {NomUtilisateur} = this.state;
+        const {PrenomUtilisateur} = this.state;
+        const {TotemUtilisateur} = this.state;
+        const {QualiUtilisateur} = this.state;
+        const {MailUtilisateur} = this.state;
     }
 
     render() {
@@ -39,48 +55,52 @@ class Inscription extends React.Component {
                 </View>
 
                 <View style={styles.bot}>
-                    <Text style={styles.textForm}>Êtes-vous :</Text>
+                    {/* <Text style={styles.textForm}>Êtes-vous :</Text>
                     <View>
                         {
-                            this.state.data.map((data, key) =>{
+                            this.state.IsChef.map((IsChef, key) =>{
                                 return(
                                     <View key={key}>
                                         {this.state.checked==key ?
                                             <TouchableOpacity style={styles.btn}>
                                                 <Image style={styles.check} source={require("../IMG/Icon/Check.png")}/>
-                                                <Text style={styles.data}>{data}</Text>
+                                                <Text style={styles.IsChef}>{IsChef}</Text>
                                             </TouchableOpacity>
                                         :
                                             <TouchableOpacity onPress={()=>{this.setState({checked: key})}} style={styles.btn}>
                                                 <Image style={styles.check} source={require("../IMG/Icon/Uncheck.png")} />
-                                                <Text style={styles.data}>{data}</Text>
+                                                <Text style={styles.IsChef}>{IsChef}</Text>
                                             </TouchableOpacity>
                                         }
                                     </View>
                                 )
                             })
                         }
-                    </View>
+                    </View> */}
                 
                     <Text style={styles.Form}>Veuillez introduire votre :</Text>
                     <View style={styles.Form1}> 
                         <Text style={styles.textForm1}>Nom * : </Text>
-                        <Input style={styles.input}
+                        <Input 
+                            style={styles.input}
                             placeholder="Introduisez votre nom" 
+                            onChangeText = {NomUtilisateur => this.setState({NomUtilisateur})}
                         />
                     </View>
 
                     <View style={styles.Form2}>
                         <Text style={styles.textForm2}>Prénom * : </Text>
                         <Input style={styles.input}
-                            placeholder="Introduisez votre prénom" 
+                            placeholder="Introduisez votre prénom"
+                            onChangeText = {PrenomUtilisateur => this.setState({PrenomUtilisateur})} 
                         />
                     </View>
 
                     <View style={styles.Form3}>
                         <Text style={styles.textForm3}>Totem : </Text>
                         <Input style={styles.input}
-                            placeholder="Introduisez votre totem" 
+                            placeholder="Introduisez votre totem"
+                            onChangeText = {TotemUtilisateur => this.setState({TotemUtilisateur})}
                         />
                     </View>
 
@@ -88,6 +108,7 @@ class Inscription extends React.Component {
                         <Text style={styles.textForm4}>Quali : </Text>
                         <Input style={styles.input}
                             placeholder="Introduisez votre quali" 
+                            onChangeText = {QualiUtilisateur => this.setState({QualiUtilisateur})}
                         />
                     </View>
 
@@ -95,6 +116,7 @@ class Inscription extends React.Component {
                         <Text style={styles.textForm5}>Mail * : </Text>
                         <Input style={styles.input}
                             placeholder="Introduisez votre adresse mail" 
+                            onChangeText = {MailUtilisateur => this.setState({MailUtilisateur})}
                         />
                     </View>
                     
@@ -102,12 +124,14 @@ class Inscription extends React.Component {
                         <TouchableOpacity 
                             style={styles.button} 
                             onPress={() => navigate('Calendrier')}>
-                            <Text style={styles.buttonText}>Je m'inscris !</Text>
+                            <Text 
+                                style={styles.buttonText} 
+                                onPress={this.userRegister}>Je m'inscris !</Text>
                         </TouchableOpacity>
 
-                        <Text onPress={() => navigate('Login')} style={styles.retour}>
-                                Retour
-                        </Text>
+                        <Text 
+                            onPress={() => navigate('Login')} 
+                            style={styles.retour}>Retour</Text>
                     </View>
                 </View>
             </View>
@@ -233,13 +257,13 @@ const styles = StyleSheet.create({
         width:250,
         backgroundColor:"#99B2D0",
         color:'#26355C',
-        borderRadius:10
+        borderRadius:17
     },
     button: {
         backgroundColor:'#26355C',
         margin:25,
         paddingVertical:15,
-        borderRadius:10
+        borderRadius:17
     },
     buttonText: {
         textAlign: 'center',
