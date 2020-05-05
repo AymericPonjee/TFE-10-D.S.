@@ -1,7 +1,8 @@
 import React from 'react'
-import { Text, View, StyleSheet, StatusBar, Image, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, StatusBar, Image, TouchableOpacity, TextInput } from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import { Input } from 'galio-framework'
+// import {getInscription} from '../Helpers/Utils.js'
 //import Icon from 'react-native-vector-icons/FontAwesome'
 
 class Inscription extends React.Component {
@@ -10,9 +11,6 @@ class Inscription extends React.Component {
         super(props);
         
         this.state = {
-            IsChef:[' Chef', ' Autres'],
-            checked:0,
-
             NomUtilisateur:'',
             PrenomUtilisateur:'',
             TotemUtilisateur:'',
@@ -21,14 +19,32 @@ class Inscription extends React.Component {
         }
     }
 
-    userRegister = () => {
-        //alert("Votre demande d'accès à l'application a été envoyé ! Vous recevrez un mail avec votre mot de passe");
+    userRegister = () =>{
+        const { NomUtilisateur }  = this.state ;
+        const { PrenomUtilisateur }  = this.state ;
+        const { TotemUtilisateur }  = this.state ;
+        const { QualiUtilisateur }  = this.state ;
+        const { MailUtilisateur }  = this.state ;
 
-        const {NomUtilisateur} = this.state;
-        const {PrenomUtilisateur} = this.state;
-        const {TotemUtilisateur} = this.state;
-        const {QualiUtilisateur} = this.state;
-        const {MailUtilisateur} = this.state;
+        fetch('http://localhost:8888/phpMyAdmin/sql.php?db=DivinSauveurBDD&table=Utilisateur&pos=0', {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify({
+                Nom:NomUtilisateur,
+                prenom:PrenomUtilisateur,
+                totem:TotemUtilisateur,
+                quali:QualiUtilisateur,
+                mail:MailUtilisateur
+            })
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+            return responseData;
+        })
+        .catch(error => console.warn(error));
     }
 
     render() {
@@ -77,62 +93,77 @@ class Inscription extends React.Component {
                             })
                         }
                     </View> */}
-                
-                    <Text style={styles.Form}>Veuillez introduire votre :</Text>
-                    <View style={styles.Form1}> 
-                        <Text style={styles.textForm1}>Nom * : </Text>
-                        <Input 
-                            style={styles.input}
-                            placeholder="Introduisez votre nom" 
-                            onChangeText = {NomUtilisateur => this.setState({NomUtilisateur})}
-                        />
-                    </View>
+                    <KeyboardAwareScrollView>
+                        <Text style={styles.Form}>Veuillez introduire votre :</Text>
+                        <View style={styles.Form1}> 
+                            <Text style={styles.textForm1}>Nom * : </Text>
+                            <TextInput 
+                                style={styles.input}
+                                placeholder="Introduisez votre nom" 
+                                selectionColor = "#26355C"
+                                onSubmitEditing={() => this.prenom.focus()}
+                                onChangeText = {NomUtilisateur => this.setState({NomUtilisateur})}
+                            />
+                        </View>
 
-                    <View style={styles.Form2}>
-                        <Text style={styles.textForm2}>Prénom * : </Text>
-                        <Input style={styles.input}
-                            placeholder="Introduisez votre prénom"
-                            onChangeText = {PrenomUtilisateur => this.setState({PrenomUtilisateur})} 
-                        />
-                    </View>
+                        <View style={styles.Form2}>
+                            <Text style={styles.textForm2}>Prénom * : </Text>
+                            <TextInput style={styles.input}
+                                placeholder="Introduisez votre prénom"
+                                selectionColor = "#26355C"
+                                ref={(input) => this.prenom = input}
+                                onSubmitEditing={() => this.totem.focus()}
+                                onChangeText = {PrenomUtilisateur => this.setState({PrenomUtilisateur})} 
+                            />
+                        </View>
 
-                    <View style={styles.Form3}>
-                        <Text style={styles.textForm3}>Totem : </Text>
-                        <Input style={styles.input}
-                            placeholder="Introduisez votre totem"
-                            onChangeText = {TotemUtilisateur => this.setState({TotemUtilisateur})}
-                        />
-                    </View>
+                        <View style={styles.Form3}>
+                            <Text style={styles.textForm3}>Totem : </Text>
+                            <TextInput style={styles.input}
+                                placeholder="Introduisez votre totem"
+                                selectionColor = "#26355C"
+                                ref={(input) => this.totem = input}
+                                onSubmitEditing={() => this.quali.focus()}
+                                onChangeText = {TotemUtilisateur => this.setState({TotemUtilisateur})}
+                            />
+                        </View>
 
-                    <View style={styles.Form4}>
-                        <Text style={styles.textForm4}>Quali : </Text>
-                        <Input style={styles.input}
-                            placeholder="Introduisez votre quali" 
-                            onChangeText = {QualiUtilisateur => this.setState({QualiUtilisateur})}
-                        />
-                    </View>
+                        <View style={styles.Form4}>
+                            <Text style={styles.textForm4}>Quali : </Text>
+                            <TextInput style={styles.input}
+                                placeholder="Introduisez votre quali" 
+                                selectionColor = "#26355C"
+                                ref={(input) => this.quali = input}
+                                onSubmitEditing={() => this.mail.focus()}
+                                onChangeText = {QualiUtilisateur => this.setState({QualiUtilisateur})}
+                            />
+                        </View>
 
-                    <View style={styles.Form5}>
-                        <Text style={styles.textForm5}>Mail * : </Text>
-                        <Input style={styles.input}
-                            placeholder="Introduisez votre adresse mail" 
-                            onChangeText = {MailUtilisateur => this.setState({MailUtilisateur})}
-                        />
-                    </View>
-                    
-                    <View>
-                        <TouchableOpacity 
-                            style={styles.button} 
-                            onPress={() => navigate('Calendrier')}>
+                        <View style={styles.Form5}>
+                            <Text style={styles.textForm5}>Mail * : </Text>
+                            <TextInput style={styles.input}
+                                placeholder="Introduisez votre adresse mail" 
+                                selectionColor = "#26355C"
+                                keyboardType = "email-address"
+                                ref={(input) => this.mail = input}
+                                onChangeText = {MailUtilisateur => this.setState({MailUtilisateur})}
+                            />
+                        </View>
+                        
+                        <View>
+                            <TouchableOpacity 
+                                style={styles.button} 
+                                onPress={this.userRegister}
+                                //onPress={() => navigate('Calendrier')}
+                                >
+                                <Text style={styles.buttonText}>Je m'inscris !</Text>
+                            </TouchableOpacity>
+
                             <Text 
-                                style={styles.buttonText} 
-                                onPress={this.userRegister}>Je m'inscris !</Text>
-                        </TouchableOpacity>
-
-                        <Text 
-                            onPress={() => navigate('Login')} 
-                            style={styles.retour}>Retour</Text>
-                    </View>
+                                onPress={() => navigate('Login')} 
+                                style={styles.retour}>Retour</Text>
+                        </View>
+                    </KeyboardAwareScrollView>
                 </View>
             </View>
         );
@@ -257,7 +288,9 @@ const styles = StyleSheet.create({
         width:250,
         backgroundColor:"#99B2D0",
         color:'#26355C',
-        borderRadius:17
+        borderRadius:17,
+        marginVertical:10,
+        paddingHorizontal:10
     },
     button: {
         backgroundColor:'#26355C',

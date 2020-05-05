@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, StatusBar } from 'react-native'
-import { Input } from 'galio-framework'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 class Login extends React.Component {
@@ -9,7 +9,8 @@ class Login extends React.Component {
         super(props);
         
         this.state = {
-
+            isLoading: true,
+            dataSource: null,
         }
       }
 
@@ -35,10 +36,10 @@ class Login extends React.Component {
                     </View>
 
                     <View style={styles.mid}>
+                    <KeyboardAwareScrollView>
                         <TextInput 
                             style={styles.input}
                             placeholder="Introduisez votre adresse mail" 
-                            //placeholderTextColor = "#26355C"
                             selectionColor = "#26355C"
                             keyboardType = "email-address"
                             onSubmitEditing={() => this.password.focus()}
@@ -47,8 +48,8 @@ class Login extends React.Component {
                         <TextInput 
                             style={styles.input}
                             placeholder="Introduisez votre adresse mot de passe" 
-                            secureTextEntry={true}
-                            //placeholderTextColor = "#26355C"
+                            secureTextEntry={ true }
+                            autoCorrect={false} 
                             selectionColor = "#26355C"
                             ref={(input) => this.password = input}
                         />
@@ -66,6 +67,7 @@ class Login extends React.Component {
                             style={styles.CCompte}>
                             Se créer un compte
                         </Text>
+                        </KeyboardAwareScrollView>
                     </View>
             </View>
         )

@@ -17,4 +17,7 @@ npm install galio-framework
 npm install --save express
 npm install --save mysql
 
+npm i --save redux
+npm i --save react-redux redux-thunk
+
 yarn add react-native-elements
