@@ -16,6 +16,7 @@ npm install galio-framework
 
 npm install --save express
 npm install --save mysql
+npm install --save realm
 
 npm i --save redux
 npm i --save react-redux redux-thunk

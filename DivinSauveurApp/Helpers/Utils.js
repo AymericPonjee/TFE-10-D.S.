@@ -6,7 +6,7 @@ export function getInscription(){
     const { QualiUtilisateur }  = this.state ;
     const { MailUtilisateur }  = this.state ;
 
-    fetch('http://localhost:8888/phpMyAdmin/sql.php?db=DivinSauveurBDD&table=Utilisateur&pos=0', {
+    fetch('http://192.168.0.47:8889/', {
         method: 'POST',
         headers: {
         'Accept': 'application/json',
