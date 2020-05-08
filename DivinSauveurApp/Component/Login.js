@@ -9,10 +9,41 @@ class Login extends React.Component {
         super(props);
         
         this.state = {
-            isLoading: true,
-            dataSource: null,
+            MailUtilisateur:'',
+            MDPUtilisateur:''
         }
       }
+
+    login = () =>{
+        const{MailUtilisateur} = this.state;
+        const{MDPUtilisateur} = this.state;
+        Keyboard.dismiss();
+
+        fetch("http://localhost:3000/API/apiLogin.php?", {
+            method: "post",
+            header: {
+                "Accept": "application/json",
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify({
+                mail:MailUtilisateur,
+                password:MDPUtilisateur,
+            }),
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            if (responseJson == "ok") {
+                alert("login accepted");
+                this.props.navigation.navigate("Calendrier");
+            } 
+            else {
+                alert('Aïe quelque chose ne va pas..');
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+      });
+    }
 
     render() {
 

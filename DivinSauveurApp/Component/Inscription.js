@@ -2,7 +2,6 @@ import React from 'react'
 import { Text, View, StyleSheet, StatusBar, Image, TouchableOpacity, TextInput } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-// import {getInscription} from '../Helpers/Utils.js'
 //import Icon from 'react-native-vector-icons/FontAwesome'
 
 class Inscription extends React.Component {
@@ -18,33 +17,40 @@ class Inscription extends React.Component {
             MailUtilisateur:''
         }
     }
-
+    
     userRegister = () =>{
-        const { NomUtilisateur }  = this.state ;
-        const { PrenomUtilisateur }  = this.state ;
-        const { TotemUtilisateur }  = this.state ;
-        const { QualiUtilisateur }  = this.state ;
-        const { MailUtilisateur }  = this.state ;
+        const{NomUtilisateur} = this.state;
+        const{PrenomUtilisateur} = this.state;
+        const{TotemUtilisateur} = this.state;
+        const{QualiUtilisateur} = this.state;
+        const{MailUtilisateur} = this.state;
 
-        fetch('http://localhost:8888/phpMyAdmin/sql.php?db=DivinSauveurBDD&table=Utilisateur&pos=0', {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
+        fetch("http://localhost:3000/API/apiInscription.php?", {
+            method: "post",
+            header: {
+                "Accept": "application/json",
+                "Content-type": "application/json",
             },
-            body:JSON.stringify({
-                Nom:NomUtilisateur,
-                prenom:PrenomUtilisateur,
+            body: JSON.stringify({
+                nom: NomUtilisateur,
+                prenom: PrenomUtilisateur,
                 totem:TotemUtilisateur,
                 quali:QualiUtilisateur,
-                mail:MailUtilisateur
-            })
+                mail:MailUtilisateur,
+                //password:MDPUtilisateur,
+            }),
         })
         .then((response) => response.json())
-        .then((responseData) => {
-            return responseData;
+        .then((responseJson) => {
+            alert(responseJson);
         })
-        .catch(error => console.warn(error));
+        .catch((error) => {
+            Alert.alert("Info", "Tous les champs obligatoire ne sont pas complété", [
+            { text: "OK" },
+            ]);
+
+            console.log(error);
+      });
     }
 
     render() {
@@ -154,7 +160,8 @@ class Inscription extends React.Component {
                             <TouchableOpacity 
                                 style={styles.button} 
                                 onPress={this.userRegister}
-                                //onPress={() => navigate('Calendrier')}
+                                //onPress= {MDPUtilisateur => this.setState({MDPUtilisateur})}
+                               // onPress={() => navigate('Calendrier')}
                                 >
                                 <Text style={styles.buttonText}>Je m'inscris !</Text>
                             </TouchableOpacity>
