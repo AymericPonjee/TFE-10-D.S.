@@ -17,9 +17,9 @@ class Login extends React.Component {
     login = () =>{
         const{MailUtilisateur} = this.state;
         const{MDPUtilisateur} = this.state;
-        Keyboard.dismiss();
+        //Keyboard.dismiss();
 
-        fetch("http://localhost:3000/API/apiLogin.php?", {
+        fetch("http://127.0.0.1/API/apiLogin.php?", {
             method: "post",
             header: {
                 "Accept": "application/json",
@@ -87,10 +87,8 @@ class Login extends React.Component {
 
                         <TouchableOpacity 
                             style={styles.button} 
-                            onPress={() => navigate('Calendrier')}>
-                            <Text 
-                                style={styles.buttonText} 
-                                onPress={this.userRegister}>Connexion</Text>
+                            onPress={this.login}>
+                            <Text style={styles.buttonText}>Connexion</Text>
                         </TouchableOpacity>
                             
                         <Text 

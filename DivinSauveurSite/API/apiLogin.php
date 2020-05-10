@@ -1,5 +1,5 @@
 <?php
-include("db_connect.php");
+include("../PHP/db_connect.php");
 
 
 $obj = json_decode($json,true);
