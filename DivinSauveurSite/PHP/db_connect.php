@@ -1,6 +1,5 @@
 <?php
-// echo "ok";
-// exit;
+
 $servername = "185.98.131.128";//185.98.131.128
 $username = "divin1378832";//divin1378832
 $password = "u4qnbuguxv";//u4qnbuguxv
@@ -11,8 +10,8 @@ try {
     // set the PDO error mode to exception
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "Connection success";
+    //echo "Connection success";
 } catch (PDOException $e) {
     error_log("Connection failed: " . $e->getMessage());
-    echo "Connection failed: " . $e->getMessage();
+    //echo "Connection failed: " . $e->getMessage();
 }

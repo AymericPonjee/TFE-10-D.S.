@@ -29,7 +29,7 @@ class Inscription extends React.Component {
         const{MDPUtilisateur} = this.state;
         const{IsChef} = this.state;
 
-        return fetch("http://localhost:3000/API/apiInscription.php?", {
+        return fetch("https://divinsauveur.com/API/apiInscription.php?", {
             method: "POST",
             header: {
                 'Accept': "application/json",

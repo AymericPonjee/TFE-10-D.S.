@@ -1,22 +1,29 @@
 <?php
-include("../PHP/db_connect.php");
+    include("../PHP/db_connect.php");
 
+    $con = mysqli_connect($servername,$username,$password,$dbname);
+    $json = file_get_contents('php://input');
+    $obj = json_decode($json,true);
 
-$obj = json_decode($json,true);
+    $MailUtilisateur = $obj['MailUtilisateur'];
+    $MDPUtilisateur = $obj['MDPUtilisateur'];
 
-$mail = $obj['mail'];
-$password = $obj['password'];
+    $CheckSQL = "SELECT * FROM Utilisateur WHERE MailUtilisateur = '$MailUtilisateur' AND MDPUtilisateur = '$MDPUtilisateur'";
+    $check = mysqli_fetch_array(mysqli_query($con,$CheckSQL));
 
-if($obj['mail'] != ""){
-    $result = $msqli -> query("SELECT * FROM Utilisateur WHERE MailUtilisateur = '$mail' and MDPUtilisateur = '$mail'");
+    if(isset($check)){
 
-    if($result -> num_rows > 0) {
-        echo json_encode('Aïe erreur..');
+        $Valide = true;
+        $Valide_Json = json_encode($Valide);
+        echo $Valide_Json ; 
+        
     }
-    else {
-        echo json_encode('Ok');
+    else{
+        $NValide = false;
+        $NValide_Json = json_encode($NValide);
+        echo $NValide_Json ; 
     }
-}
-else {
-    echo json_encode('Try again');
-}
+
+    mysqli_close($con);
+?>
+    

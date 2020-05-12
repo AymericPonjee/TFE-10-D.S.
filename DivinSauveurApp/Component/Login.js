@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, StatusBar } from 'react-native'
+
+import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, StatusBar, Alert } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
@@ -9,42 +10,36 @@ class Login extends React.Component {
         super(props);
         
         this.state = {
-            MailUtilisateur:'',
-            MDPUtilisateur:''
+            MailUtilisateur: '',
+            MDPUtilisateur: ''
         }
       }
 
     login = () =>{
-        const{MailUtilisateur} = this.state;
-        const{MDPUtilisateur} = this.state;
-        //Keyboard.dismiss();
-
-        fetch("http://127.0.0.1/API/apiLogin.php?", {
-            method: "post",
+        fetch("https://divinsauveur.com/API/apiLogin.php", {
+            method: "POST",
             header: {
-                "Accept": "application/json",
-                "Content-type": "application/json",
+                'Accept': 'application/json',
+                'Content-type': 'application/json',
             },
             body: JSON.stringify({
-                mail:MailUtilisateur,
-                password:MDPUtilisateur,
+                MailUtilisateur: this.state.MailUtilisateur,
+                MDPUtilisateur: this.state.MDPUtilisateur
             }),
         })
         .then((response) => response.json())
         .then((responseJson) => {
-            if (responseJson == "ok") {
-                alert("login accepted");
-                this.props.navigation.navigate("Calendrier");
-            } 
+            if(responseJson == true){
+                this.props.navigation.navigate("Calendrier")
+            }
             else {
-                alert('Aïe quelque chose ne va pas..');
+                Alert.alert("Aïe.. Vous vous êtes trompé quelque part..");
             }
         })
         .catch((error) => {
             console.error(error);
-      });
+        });
     }
-
     render() {
 
     const {navigate} = this.props.navigation;
@@ -74,6 +69,7 @@ class Login extends React.Component {
                             selectionColor = "#26355C"
                             keyboardType = "email-address"
                             onSubmitEditing={() => this.password.focus()}
+                            onChangeText = {data => this.setState({ MailUtilisateur: data })}
                         />
 
                         <TextInput 
@@ -83,6 +79,7 @@ class Login extends React.Component {
                             autoCorrect={false} 
                             selectionColor = "#26355C"
                             ref={(input) => this.password = input}
+                            onChangeText = {data => this.setState({ MDPUtilisateur: data })} 
                         />
 
                         <TouchableOpacity 
