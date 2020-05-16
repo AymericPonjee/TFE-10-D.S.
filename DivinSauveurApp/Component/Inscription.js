@@ -10,13 +10,13 @@ class Inscription extends React.Component {
         super(props);
         
         this.state = {
-            NomUtilisateur:'',
-            PrenomUtilisateur:'',
-            TotemUtilisateur:'',
-            QualiUtilisateur:'',
-            MailUtilisateur:'',
-            MDPUtilisateur:'',
-            IsChef:''
+            NomUtilisateur: '',
+            PrenomUtilisateur: '',
+            TotemUtilisateur: '',
+            QualiUtilisateur: '',
+            MailUtilisateur: '',
+            MDPUtilisateur: '',
+            IsChef: ''
         }
     }
     
@@ -85,28 +85,6 @@ class Inscription extends React.Component {
                 </View>
 
                 <View style={styles.bot}>
-                    {/* <Text style={styles.textForm}>Êtes-vous :</Text>
-                    <View>
-                        {
-                            this.state.IsChef.map((IsChef, key) =>{
-                                return(
-                                    <View key={key}>
-                                        {this.state.checked==key ?
-                                            <TouchableOpacity style={styles.btn}>
-                                                <Image style={styles.check} source={require("../IMG/Icon/Check.png")}/>
-                                                <Text style={styles.IsChef}>{IsChef}</Text>
-                                            </TouchableOpacity>
-                                        :
-                                            <TouchableOpacity onPress={()=>{this.setState({checked: key})}} style={styles.btn}>
-                                                <Image style={styles.check} source={require("../IMG/Icon/Uncheck.png")} />
-                                                <Text style={styles.IsChef}>{IsChef}</Text>
-                                            </TouchableOpacity>
-                                        }
-                                    </View>
-                                )
-                            })
-                        }
-                    </View> */}
                     <KeyboardAwareScrollView>
                         <Text style={styles.Form}>Veuillez introduire votre :</Text>
                         <View style={styles.Form1}> 
@@ -115,14 +93,16 @@ class Inscription extends React.Component {
                                 style={styles.input}
                                 placeholder="Introduisez votre nom" 
                                 selectionColor = "#26355C"
-                                onSubmitEditing={() => this.prenom.focus()}
+                                onSubmitEditing = {() => this.prenom.focus()}
+                                onChangeText = {(text) => this.validate(text,'NomUtilisateur')}
                                 onChangeText = {NomUtilisateur => this.setState({NomUtilisateur})}
                             />
                         </View>
 
                         <View style={styles.Form2}>
                             <Text style={styles.textForm2}>Prénom * : </Text>
-                            <TextInput style={styles.input}
+                            <TextInput 
+                                style={styles.input}
                                 placeholder="Introduisez votre prénom"
                                 selectionColor = "#26355C"
                                 ref={(input) => this.prenom = input}
@@ -133,7 +113,8 @@ class Inscription extends React.Component {
 
                         <View style={styles.Form3}>
                             <Text style={styles.textForm3}>Totem : </Text>
-                            <TextInput style={styles.input}
+                            <TextInput 
+                                style={styles.input}
                                 placeholder="Introduisez votre totem"
                                 selectionColor = "#26355C"
                                 ref={(input) => this.totem = input}
@@ -144,7 +125,8 @@ class Inscription extends React.Component {
 
                         <View style={styles.Form4}>
                             <Text style={styles.textForm4}>Quali : </Text>
-                            <TextInput style={styles.input}
+                            <TextInput 
+                                style={styles.input}
                                 placeholder="Introduisez votre quali" 
                                 selectionColor = "#26355C"
                                 ref={(input) => this.quali = input}
@@ -155,7 +137,8 @@ class Inscription extends React.Component {
 
                         <View style={styles.Form5}>
                             <Text style={styles.textForm5}>Mail * : </Text>
-                            <TextInput style={styles.input}
+                            <TextInput 
+                                style={styles.input}
                                 placeholder="Introduisez votre adresse mail" 
                                 selectionColor = "#26355C"
                                 keyboardType = "email-address"
@@ -319,6 +302,10 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         marginLeft:25,
         fontSize: 15
+    },
+    error: {
+        borderWidth: 3,
+        borderColor: 'red'
     }
 });
 
