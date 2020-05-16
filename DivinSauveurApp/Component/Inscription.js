@@ -21,14 +21,6 @@ class Inscription extends React.Component {
     }
     
     userRegister = () =>{
-        const{NomUtilisateur} = this.state;
-        const{PrenomUtilisateur} = this.state;
-        const{TotemUtilisateur} = this.state;
-        const{QualiUtilisateur} = this.state;
-        const{MailUtilisateur} = this.state;
-        const{MDPUtilisateur} = this.state;
-        const{IsChef} = this.state;
-
         return fetch("https://divinsauveur.com/API/apiInscription.php?", {
             method: "POST",
             header: {
@@ -36,22 +28,37 @@ class Inscription extends React.Component {
                 'Content-type': "application/json",
             },
             body: JSON.stringify({
-                nom: NomUtilisateur,
-                prenom: PrenomUtilisateur,
-                totem:TotemUtilisateur,
-                quali:QualiUtilisateur,
-                mail:MailUtilisateur,
-                password:MDPUtilisateur,
-                IsChef:IsChef
+                NomUtilisateur: this.state.NomUtilisateur,
+                PrenomUtilisateur: this.state.PrenomUtilisateur,
+                TotemUtilisateur: this.state.TotemUtilisateur,
+                QualiUtilisateur: this.state.QualiUtilisateur,
+                MailUtilisateur: this.state.MailUtilisateur,
+                MDPUtilisateur: this.state.MDPUtilisateur,
+                IsChef: this.state.IsChef,
             }),
         })
         .then((response) => response.json())
         .then((responseJson) => {
-            Alert.alert(responseJson);
+            if(responseJson == false){
+                Alert.alert("Aie..", "Cette email existe déjà.. Essayez autre chose !", [
+                    { text: "OK" },
+                ]);
+            }
+            else if(responseJson == true) {
+                Alert.alert("Success", "Merci d'avoir postuler pour notre application vous recevrez un mail avec vos identifiants très bientôt !!", [
+                    { text: "OK" },
+                ]);
+                this.props.navigation.navigate("Login")           
+            }
+            else {
+                Alert.alert("Info", "Try again", [
+                    { text: "OK" },
+                ]);            
+            }
         })
         .catch((error) => {
-            console.log(error);
-      });
+            console.error(error);
+        });
     }
 
     render() {

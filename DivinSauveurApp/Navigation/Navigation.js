@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer'
@@ -16,7 +16,6 @@ import Listing from '../Component/Listing.js'
 import Photos from '../Component/Photos.js'
 import Documents from '../Component/Documents.js'
 import Presentation from '../Component/Presentation.js'
-
 
 
 const DrawerNavigator = createDrawerNavigator({
@@ -73,8 +72,8 @@ const DrawerNavigator = createDrawerNavigator({
             title: "Présentation"
         }
     },
-
 },
+
 {
     drawerPosition: 'right',
     drawerType: 'slide',
@@ -104,7 +103,7 @@ const StackNavigator = createStackNavigator({
         navigationOptions: ({ navigation }) => {
             const { state } = navigation;
             return {
-                header: ({titleStyle}) =>(
+                header: () =>(
                         <View style={styles.nav}>                
                             <TouchableOpacity style={styles.menuOpen} onPress={() => {navigation.dispatch(DrawerActions.toggleDrawer())}}>
                                 <Icon name="list"  size={50} color='#26355C' />
@@ -123,6 +122,7 @@ const StackNavigator = createStackNavigator({
     }
 })
 
+
 const styles = StyleSheet.create({
     nav:{
         flexDirection:'row',
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     icon: {
         width: 30,
         height: 30
-      }
+      },
   });
 
 export default createAppContainer(StackNavigator)

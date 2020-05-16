@@ -12,14 +12,12 @@
     $check = mysqli_fetch_array(mysqli_query($con,$CheckSQL));
 
     if(isset($check)){
-
-        $Valide = true;
+        $Valide = 1;//redirection
         $Valide_Json = json_encode($Valide);
-        echo $Valide_Json ; 
-        
+        echo $Valide_Json ;   
     }
     else{
-        $NValide = false;
+        $NValide = 0;//Aïe.. Vous vous êtes trompé quelque part..
         $NValide_Json = json_encode($NValide);
         echo $NValide_Json ; 
     }

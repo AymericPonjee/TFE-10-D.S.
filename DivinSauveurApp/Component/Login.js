@@ -29,11 +29,13 @@ class Login extends React.Component {
         })
         .then((response) => response.json())
         .then((responseJson) => {
-            if(responseJson == true){
+            if(responseJson == 1){
                 this.props.navigation.navigate("Calendrier")
             }
             else {
-                Alert.alert("Aïe.. Vous vous êtes trompé quelque part..");
+                Alert.alert("Info", "Aïe.. Vous vous êtes trompé quelque part..", [
+                    { text: "OK" },
+                ]);
             }
         })
         .catch((error) => {
