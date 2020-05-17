@@ -61,6 +61,31 @@ class Inscription extends React.Component {
         });
     }
 
+    onClickListener = () => {
+        if(this.state.NomUtilisateur){
+            if(this.state.PrenomUtilisateur){
+                if(this.state.MailUtilisateur){
+                    this.userRegister();
+                }
+                else{
+                    Alert.alert("Aie..", "Vous avez oublié d'entrer votre adresse mail", [
+                        { text: "OK" },
+                    ]);                 
+                }
+            }
+            else{
+                Alert.alert("Aie..", "Vous avez oublié d'entrer votre prénom", [
+                    { text: "OK" },
+                ]);  
+            }
+        }   
+        else{
+            Alert.alert("Aie..", "Vous avez oublié d'entrer votre nom", [
+                { text: "OK" },
+            ]); 
+        }
+    }
+
     render() {
 
         const {navigate} = this.props.navigation;
@@ -150,7 +175,7 @@ class Inscription extends React.Component {
                         <View>
                             <TouchableOpacity 
                                 style={styles.button} 
-                                onPress={this.userRegister}>
+                                onPress={this.onClickListener}>
                                 <Text style={styles.buttonText}>Je m'inscris !</Text>
                             </TouchableOpacity>
 
@@ -309,5 +334,5 @@ const styles = StyleSheet.create({
     }
 });
 
-AppRegistry.registerComponent('Inscription', () => Inscription);
+//AppRegistry.registerComponent('Inscription', () => Inscription);
 export default Inscription

@@ -8,9 +8,29 @@ class Calendrier extends React.Component {
         super(props);
         
         this.state = {
-            
+            data: ''
         }
       }
+
+      Calendrier = () =>{
+        fetch("https://divinsauveur.com/API/apiCalendrier.php", {
+            method: "GET",
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json',
+            },
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            console.log(responseJson);
+            this.setState({
+                data: responseJson
+            })
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
 
     render() {
         return (
