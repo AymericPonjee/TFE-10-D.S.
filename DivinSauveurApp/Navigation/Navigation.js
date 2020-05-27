@@ -16,6 +16,7 @@ import Listing from '../Component/Listing.js'
 import Photos from '../Component/Photos.js'
 import Documents from '../Component/Documents.js'
 import Presentation from '../Component/Presentation.js'
+import AddEvenement from '../Component/AddEvenement.js'
 
 
 const DrawerNavigator = createDrawerNavigator({
@@ -98,7 +99,7 @@ const StackNavigator = createStackNavigator({
             headerShown: false
         }
     },
-    Calendrier: { 
+    DrawerNavigator: { 
         screen: DrawerNavigator,
         navigationOptions: ({ navigation }) => {
             const { state } = navigation;
@@ -119,7 +120,14 @@ const StackNavigator = createStackNavigator({
             title: 'Inscription',
             headerShown: false
         }
-    }
+    },
+    AddEvenement: { 
+        screen: AddEvenement,
+        navigationOptions: {
+            title: 'AddEvenement',
+            headerShown: false,
+        }
+    },
 })
 
 
@@ -133,7 +141,7 @@ const styles = StyleSheet.create({
     menuOpen: {
         paddingTop:150,
         position: 'absolute',
-        right: 30
+        right: 40
     },
     icon: {
         width: 30,

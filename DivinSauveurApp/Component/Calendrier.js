@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, StatusBar, Image } from 'react-native'
+import { Text, View, StyleSheet, StatusBar, Image, TouchableOpacity } from 'react-native'
 
 
 class Calendrier extends React.Component {
@@ -8,7 +8,7 @@ class Calendrier extends React.Component {
         super(props);
         
         this.state = {
-            data: ''
+            data: []
         }
       }
 
@@ -26,13 +26,16 @@ class Calendrier extends React.Component {
             this.setState({
                 data: responseJson
             })
-        })
+         })
         .catch((error) => {
             console.error(error);
         });
     }
 
     render() {
+
+        const {navigate} = this.props.navigation;
+
         return (
 
             <View  style={styles.container}>
@@ -51,6 +54,14 @@ class Calendrier extends React.Component {
                     <Text style={styles.titre}>
                         Calendrier
                     </Text>
+                    <TouchableOpacity>
+                        <Text 
+                            style={styles.addEvent}
+                            onPress={() => navigate('AddEvenement')} 
+                        >
+                            +
+                        </Text>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.bot}>
@@ -72,7 +83,8 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end',
     },
     mid: {
-        flex:0.1
+        flex:0.1,
+        flexDirection: 'row',
     },
     bot: {
         flex:1,
@@ -87,6 +99,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft:25,
         fontSize: 30
+    },
+    addEvent: {
+        marginLeft:10,
+        fontSize: 30,
+        paddingBottom: 20,
+        color:'#02B6FF',
     }
 });
 

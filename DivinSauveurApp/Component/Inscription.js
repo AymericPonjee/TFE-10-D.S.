@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, StatusBar, Image, TouchableOpacity, TextInput, Alert, AppRegistry } from 'react-native'
+import { Text, View, StyleSheet, StatusBar, Image, TouchableOpacity, TextInput, Alert } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 //import Icon from 'react-native-vector-icons/FontAwesome'
@@ -34,7 +34,7 @@ class Inscription extends React.Component {
                 QualiUtilisateur: this.state.QualiUtilisateur,
                 MailUtilisateur: this.state.MailUtilisateur,
                 MDPUtilisateur: this.state.MDPUtilisateur,
-                IsChef: this.state.IsChef,
+                IsChef: this.state.IsChef
             }),
         })
         .then((response) => response.json())
@@ -327,12 +327,7 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         marginLeft:25,
         fontSize: 15
-    },
-    error: {
-        borderWidth: 3,
-        borderColor: 'red'
     }
 });
 
-//AppRegistry.registerComponent('Inscription', () => Inscription);
 export default Inscription
