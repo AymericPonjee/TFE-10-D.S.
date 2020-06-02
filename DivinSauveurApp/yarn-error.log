@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add react-native-datepicker
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add @babel/runtime --dev
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/Users/aymericponjee/Documents/Programmation/TFE-10-D.S./DivinSauveurApp/node_modules/.bin/atob'
+  Error: EACCES: permission denied, mkdir '/Users/aymericponjee/Documents/Programmation/TFE-10-D.S./DivinSauveurApp/node_modules/react-native/node_modules/@babel'
 
 npm manifest: 
   {
@@ -27,7 +27,7 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
-      "@react-native-community/datetimepicker": "^2.4.0",
+      "@react-native-community/datetimepicker": "2.2.2",
       "@react-native-community/masked-view": "0.1.6",
       "@react-navigation/material-bottom-tabs": "^5.1.8",
       "body-parser": "^1.19.0",
@@ -1211,6 +1211,13 @@ Lockfile:
       sudo-prompt "^9.0.0"
       wcwidth "^1.0.1"
       ws "^1.1.0"
+  
+  "@react-native-community/datetimepicker@2.2.2":
+    version "2.2.2"
+    resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-2.2.2.tgz#4c6388631179098cc5b289146e879764f79af4c1"
+    integrity sha512-J4Z1tuZQszLR+BNu+UusZlK6/S+CpI6AHzolqTdPS2tRlyVbVim3KyjXrn8trtKxQncR5LEqF9OHw9zsRfEdXA==
+    dependencies:
+      invariant "^2.2.4"
   
   "@react-native-community/masked-view@0.1.6":
     version "0.1.6"
@@ -4057,6 +4064,11 @@ Lockfile:
     dependencies:
       minimist "^1.2.5"
   
+  moment@^2.22.0:
+    version "2.26.0"
+    resolved "https://registry.yarnpkg.com/moment/-/moment-2.26.0.tgz#5e1f82c6bafca6e83e808b30c8705eed0dcbd39a"
+    integrity sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw==
+  
   morgan@^1.9.0:
     version "1.10.0"
     resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.10.0.tgz#091778abc1fc47cd3509824653dae1faab6b17d7"
@@ -4728,6 +4740,13 @@ Lockfile:
     version "1.0.17"
     resolved "https://registry.yarnpkg.com/react-native-checkbox/-/react-native-checkbox-1.0.17.tgz#94c61f190ef728c38763f48cd7ab91a6ad9fd4e2"
     integrity sha1-lMYfGQ73KMOHY/SM16uRpq2f1OI=
+  
+  react-native-datepicker@^1.7.2:
+    version "1.7.2"
+    resolved "https://registry.yarnpkg.com/react-native-datepicker/-/react-native-datepicker-1.7.2.tgz#58d0822591a0ac9b32aba082650222a0ee29669d"
+    integrity sha1-WNCCJZGgrJsyq6CCZQIioO4pZp0=
+    dependencies:
+      moment "^2.22.0"
   
   react-native-easy-grid@0.1.5:
     version "0.1.5"
