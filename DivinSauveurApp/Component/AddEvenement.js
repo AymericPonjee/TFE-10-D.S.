@@ -10,9 +10,9 @@ class AddEvenement extends React.Component {
         
         this.state = {
             NomEvenement: '',
-            DateDebutEvenement: '17/06/2020',
+            DateDebutEvenement: '',
             HeureDebutEvenement: '00:00',
-            DateFinEvenement: '17/06/2020',
+            DateFinEvenement: '',
             HeureFinEvenement: '00:00',
             LieuEvenement: '',
             AnimeAbsentEvenement: '',
@@ -60,6 +60,15 @@ class AddEvenement extends React.Component {
         });
     }
 
+    ShowCurrentDate=()=>{
+ 
+        var date = new Date().getDate();
+        var month = new Date().getMonth() + 1;
+        var year = new Date().getFullYear(); 
+
+        console.log(date + '-' + month + '-' + year);
+    }
+
     render() {
         return (
             <View  style={styles.container}>
@@ -101,13 +110,13 @@ class AddEvenement extends React.Component {
                     <View style={styles.Form3}>
                         <Text style={styles.textForm3}> Date du début de l'évènement : </Text>
                         <DatePicker
-                            style={{width: 200}}
+                            style={styles.date}
                             date={this.state.DateDebutEvenement}
                             mode="date"
                             placeholder="Date début de l'évènement"
                             format="DD-MM-YYYY"
-                            minDate="17/06/2020"
-                            maxDate="30/09/9999"
+                            minDate= {this.ShowCurrentDate}
+                            maxDate= "30/09/9999"
                             confirmBtnText="Confirmer"
                             cancelBtnText="Annuler"
                             customStyles={{
@@ -127,7 +136,7 @@ class AddEvenement extends React.Component {
                     <View style={styles.Form4}>
                         <Text style={styles.textForm4}>Heure du début de l'évènement : </Text>
                         <DatePicker
-                            style={{width: 200}}
+                            style={styles.date}
                             date={this.state.HeureDebutEvenement}
                             mode="time"
                             placeholder="Heure du début de l'évènement"
@@ -151,12 +160,12 @@ class AddEvenement extends React.Component {
                     <View style={styles.Form5}>
                         <Text style={styles.textForm5}>Date de la fin de l'évènement : </Text>
                         <DatePicker
-                            style={{width: 200}}
+                            style={styles.date}
                             date={this.state.DateFinEvenement}
                             mode="date"
                             placeholder="Date de la fin de l'évènement"
                             format="DD-MM-YYYY"
-                            minDate="17/06/2020"
+                            minDate= {this.ShowCurrentDate}
                             maxDate="30/09/9999"
                             confirmBtnText="Confirmer"
                             cancelBtnText="Annuler"
@@ -177,7 +186,7 @@ class AddEvenement extends React.Component {
                     <View style={styles.Form6}>
                         <Text style={styles.textForm6}>Heure de la fin de l'évènement : </Text>
                         <DatePicker
-                            style={{width: 200}}
+                            style={styles.date}
                             date={this.state.HeureFinEvenement}
                             mode="time"
                             placeholder="Heure de la fin de l'évènement"
@@ -317,6 +326,11 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color:'white',
         fontWeight: '800'
+    },
+    date: {
+        width:200,
+        backgroundColor:"#99B2D0",
+        color:'#26355C',
     },
 });
 
