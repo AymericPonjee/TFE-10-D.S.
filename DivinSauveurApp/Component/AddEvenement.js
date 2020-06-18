@@ -11,9 +11,9 @@ class AddEvenement extends React.Component {
         this.state = {
             NomEvenement: '',
             DateDebutEvenement: '',
-            HeureDebutEvenement: '00:00',
+            HeureDebutEvenement: '',
             DateFinEvenement: '',
-            HeureFinEvenement: '00:00',
+            HeureFinEvenement: '',
             LieuEvenement: '',
             AnimeAbsentEvenement: '',
         }
@@ -127,8 +127,13 @@ class AddEvenement extends React.Component {
                                     marginLeft: 0
                                 },
                                 dateInput: {
-                                    marginLeft: 36
-                                }
+                                    marginLeft: 36,
+                                    backgroundColor:'#99B2D0',
+                                    borderRadius:17
+                                },
+                                placeholderText: {
+                                    color: '#888888'
+                                  }
                             }}
                             onDateChange={(DateDebutEvenement) => {this.setState({DateDebutEvenement: DateDebutEvenement})}}
                         />
@@ -151,8 +156,13 @@ class AddEvenement extends React.Component {
                                     marginLeft: 0
                                 },
                                 dateInput: {
-                                    marginLeft: 36
-                                }
+                                    marginLeft: 36,
+                                    backgroundColor:'#99B2D0',
+                                    borderRadius:17
+                                },
+                                placeholderText: {
+                                    color: '#888888'
+                                  }
                             }}
                             onDateChange={(HeureDebutEvenement) => {this.setState({HeureDebutEvenement: HeureDebutEvenement})}}
                         />
@@ -177,8 +187,13 @@ class AddEvenement extends React.Component {
                                     marginLeft: 0
                                 },
                                 dateInput: {
-                                    marginLeft: 36
-                                }
+                                    marginLeft: 36,
+                                    backgroundColor:'#99B2D0',
+                                    borderRadius:17
+                                },
+                                placeholderText: {
+                                    color: '#888888'
+                                  }
                             }}
                             onDateChange={(DateFinEvenement) => {this.setState({DateFinEvenement: DateFinEvenement})}}
                         />
@@ -201,8 +216,13 @@ class AddEvenement extends React.Component {
                                     marginLeft: 0
                                 },
                                 dateInput: {
-                                    marginLeft: 36
-                                }
+                                    marginLeft: 36,
+                                    backgroundColor:'#99B2D0',
+                                    borderRadius:17
+                                },
+                                placeholderText: {
+                                    color: '#888888',
+                                  }
                             }}
                             onDateChange={(HeureFinEvenement) => {this.setState({HeureFinEvenement: HeureFinEvenement})}}
                         />
@@ -328,9 +348,7 @@ const styles = StyleSheet.create({
         fontWeight: '800'
     },
     date: {
-        width:200,
-        backgroundColor:"#99B2D0",
-        color:'#26355C',
+        width:250,
     },
 });
 
