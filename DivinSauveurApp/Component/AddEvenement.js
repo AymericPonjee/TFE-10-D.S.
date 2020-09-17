@@ -20,7 +20,7 @@ class AddEvenement extends React.Component {
     }
 
     userRegister = () =>{
-        return fetch("https://divinsauveur.com/API/apiCalendrier.php?", {
+        return fetch("https://divinsauveur.com/API/apiAddEvenement.php?", {
             method: "POST",
             header: {
                 'Accept': "application/json",
@@ -39,12 +39,12 @@ class AddEvenement extends React.Component {
         .then((response) => response.json())
         .then((responseJson) => {
             if(responseJson == false){
-                Alert.alert("Aie..", "Cette email existe déjà.. Essayez autre chose !", [
+                Alert.alert("Aie..", "Cet évènement existe déjà..", [
                     { text: "OK" },
                 ]);
             }
             else if(responseJson == true) {
-                Alert.alert("Success", "Merci d'avoir postuler pour notre application vous recevrez un mail avec vos identifiants très bientôt !!", [
+                Alert.alert("Success", "L'évènement à bien été enregistrer !", [
                     { text: "OK" },
                 ]);
                 this.props.navigation.navigate("Login")           
