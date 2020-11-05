@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, StatusBar, Image, TextInput, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, StatusBar, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import  DatePicker  from 'react-native-datepicker'
 
 
@@ -82,12 +82,12 @@ class AddEvenement extends React.Component {
                         source={require('../IMG/Logo/DivinSauveur.png')}
                     />
                 </View>
-
                 <View style={styles.mid}>
                     <Text style={styles.titre}>
                         Ajouter un évènement
                     </Text>
                 </View>
+
                 <View style={styles.bot}>
                     <View style={styles.Form1}> 
                         <Text style={styles.textForm1}>Nom de l'évènement : </Text>
@@ -233,7 +233,7 @@ class AddEvenement extends React.Component {
                     >
                         <Text style={styles.buttonText}>Ajouter l'évènement à la liste</Text>
                     </TouchableOpacity>
-                </View>
+                </View> 
             </View>
         );
     }
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end',
     },
     mid: {
-        flex:0.1
+        flex:0.06
     },
     bot: {
         flex:1,
@@ -276,21 +276,21 @@ const styles = StyleSheet.create({
         paddingHorizontal:10
     },
     Form1:{
-        paddingTop: 10,
+        paddingTop: 7,
         paddingLeft: 25,
     },
     textForm1:{
         color:'#26355C',
         fontWeight: '500',
         fontSize: 15,
-        paddingTop:20,
+        paddingTop:15,
         paddingRight:23
     },
     textForm2:{
         color:'#26355C',
         fontWeight: '500',
         fontSize: 15,
-        paddingTop:20,
+        paddingTop:15,
         paddingRight:2
     },
     Form2:{
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
         color:'#26355C',
         fontWeight: '500',
         fontSize: 15,
-        paddingTop:20,
+        paddingTop:15,
         paddingRight:23
     },
     Form3:{
